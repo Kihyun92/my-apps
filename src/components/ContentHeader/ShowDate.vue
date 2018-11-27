@@ -1,11 +1,28 @@
 <template>
-    <span class="content-date">2018/10/22</span>
+    <span class="content-date">
+        {{currentDate}}
+    </span>
 </template>
 
 
 <script>
+import moment from 'moment';
+
 export default {
-    name: 'ShowDate'
+    name: 'ShowDate',
+    data() {
+        return {
+            currentDate: ''
+        }
+    },
+    methods: {
+        initDate() {
+            this.currentDate = `${moment().format('dddd')}/${moment().format('LL')}`;
+        }
+    },
+    mounted() {
+        this.initDate();
+    }
 }
 </script>
 

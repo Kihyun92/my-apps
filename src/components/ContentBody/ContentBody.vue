@@ -20,6 +20,6 @@ export default {
 
 <style>
     .body-container {
-        /* border : 2px solid #73AD21; */
+        padding-top: 10px;
     }
 </style>
