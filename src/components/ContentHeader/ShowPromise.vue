@@ -5,12 +5,12 @@
               @click="changeInputBoxFlag">
             다짐 : {{dailyPromiseContent}}
         </span>
-        <div class="promise-input-container"
-             v-else>
-            <input class="promise-input-box"
-                   type="text"
-                   v-model="inputContent"
-                   maxlength="15">
+        <div class="promise-input-container" v-else>
+            <input
+                class="promise-input-box"
+                type="text"
+                v-model="inputContent"
+                maxlength="15">
             <button class="submit-button"
                     @click="clickSubmitButton">
                 확인
