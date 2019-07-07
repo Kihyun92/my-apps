@@ -1,10 +1,11 @@
 <template>
     <div class="todo-container">
+        <todo-form-container v-on:addTodos="setTodos"></todo-form-container>
         <ul>
-            <li class="todo"
+            <li class="todo-item"
                 v-for="(todo, index) in todos"
                 :key="index">
-                {{todo}}
+                <todo-item :todo="todo"></todo-item>
             </li>
         </ul>
     </div>
@@ -12,12 +13,25 @@
 
 
 <script>
+import TodoFormContainer from './TodoFormContainer';
+import TodoItem from './TodoItem';
+
 export default {
     name: 'TodoList',
     data() {
         return {
-            todos: ['책보기', '앱 만들기', '테스트코드 작성', '', '', '', '']
+            todos: [],
+            isModify: false
         };
+    },
+    components: {
+        TodoFormContainer,
+        TodoItem
+    },
+    methods: {
+        setTodos(todo) {
+            this.todos.push(todo);
+        }
     }
 }
 </script>
@@ -31,7 +45,7 @@ export default {
         margin-left: auto;
         margin-right: auto;
     }
-    .todo {
+    .todo-item {
         border-bottom: 1px solid black;
     }
 </style>
